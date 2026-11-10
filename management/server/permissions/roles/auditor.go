@@ -1,0 +1,16 @@
+package roles
+
+import (
+	"github.com/shippin/wardenclyffe/management/server/permissions/operations"
+	"github.com/shippin/wardenclyffe/management/server/types"
+)
+
+var Auditor = RolePermissions{
+	Role: types.UserRoleAuditor,
+	AutoAllowNew: map[operations.Operation]bool{
+		operations.Read:   true,
+		operations.Create: false,
+		operations.Update: false,
+		operations.Delete: false,
+	},
+}

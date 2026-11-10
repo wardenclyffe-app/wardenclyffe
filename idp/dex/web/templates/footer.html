@@ -1,0 +1,17 @@
+</div>
+<aside class="wc-chat" aria-label="Clyffy Chat" data-chat>
+  <details open>
+    <summary>Clyffy Chat</summary>
+    <div class="wc-chat-body">
+      <p id="chat-status" role="status">Chat is unavailable until a conversation backend is configured.</p>
+      <label for="clyffy-message">Message Clyffy</label>
+      <textarea id="clyffy-message" disabled aria-describedby="chat-status" placeholder="Chat backend not connected"></textarea>
+      <button type="button" disabled>Send message</button>
+      <button type="button" data-chat-close>Close chat</button>
+    </div>
+  </details>
+</aside>
+<button class="wc-chat-launcher" type="button" data-chat-open hidden>Open Clyffy chat</button>
+<script src="{{ url .ReqPath "theme/chat/chat.js" }}" defer></script>
+</body>
+</html>

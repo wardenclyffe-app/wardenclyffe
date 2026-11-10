@@ -1,0 +1,74 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="9 9 110 110"
+  width="32"
+  height="32"
+  role="img"
+  aria-label="WardenClyffe"
+  style="--wc-cyan: #7dd3fc; --wc-coral: #e8a87c; --wc-gold: #f2c879; --wc-ink: #edeae2"
+>
+  <title>WardenClyffe</title>
+  <style>
+    .c {
+      stop-color: var(--wc-cyan, #7dd3fc);
+    }
+    .r {
+      stop-color: var(--wc-coral, #e8a87c);
+    }
+    .g {
+      stop-color: var(--wc-gold, #f2c879);
+    }
+    .i {
+      stroke: var(--wc-ink, #edeae2);
+    }
+    @media (prefers-color-scheme: light) {
+      .c {
+        stop-color: var(--wc-cyan, #2a9fd8);
+      }
+      .r {
+        stop-color: var(--wc-coral, #d8814f);
+      }
+      .g {
+        stop-color: var(--wc-gold, #c9952b);
+      }
+      .i {
+        stroke: var(--wc-ink, #131a28);
+      }
+    }
+  </style>
+  <defs>
+    <linearGradient
+      id="wc-mark-g"
+      gradientUnits="userSpaceOnUse"
+      x1="30"
+      y1="10"
+      x2="98"
+      y2="118"
+    >
+      <stop offset="0" class="c" />
+      <stop offset=".36" class="c" />
+      <stop offset=".56" class="r" />
+      <stop offset=".7" class="r" />
+      <stop offset=".86" class="g" />
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#wc-mark-g)" stroke-linecap="round">
+    <circle cx="64" cy="64" r="50" stroke-width="4" />
+    <path
+      d="M64 14h0M99.4 28.6h0M114 64h0M99.4 99.4h0M64 114h0M28.6 99.4h0M14 64h0M28.6 28.6h0"
+      stroke-width="10"
+    />
+    <path
+      d="M29.4 84A40 40 0 0 1 84 29.4M84 98.6A40 40 0 0 1 47.1 100.3"
+      stroke-width="4.5"
+    />
+  </g>
+  <path
+    class="i"
+    d="M44 55L52 76L60 61.3L68 76L81.4 40.8A29 29 0 1 0 86.2 82.6"
+    fill="none"
+    stroke-width="8.5"
+    stroke-linejoin="round"
+    stroke-linecap="round"
+  />
+</svg>

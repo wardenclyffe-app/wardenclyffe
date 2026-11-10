@@ -1,0 +1,44 @@
+{{ $projectName := env.Getenv "PROJECT" }}{{ $amdFilePath := env.Getenv "AMD" }}{{ $armFilePath := env.Getenv "ARM" }}
+{{ $amdURL := env.Getenv "AMD_URL" }}{{ $armURL := env.Getenv "ARM_URL" }}
+{{ $amdFile := filepath.Base $amdFilePath }}{{ $armFile := filepath.Base $armFilePath }}{{ $amdFileBytes := file.Read $amdFilePath }}
+{{ $armFileBytes := file.Read $armFilePath }}# Wardenclyffe's UI Client Cask Formula
+cask "{{ $projectName }}" do
+  version "{{ env.Getenv "VERSION" }}"
+
+  if Hardware::CPU.intel?
+      url "{{ $amdURL }}"
+      sha256 "{{ crypto.SHA256 $amdFileBytes }}"
+      app "wardenclyffe_ui_darwin", target: "Wardenclyffe UI.app"
+  else
+      url "{{ $armURL }}"
+      sha256 "{{ crypto.SHA256 $armFileBytes }}"
+      app "wardenclyffe_ui_darwin", target: "Wardenclyffe UI.app"
+  end
+
+  depends_on formula: "wardenclyffe"
+
+  postflight do
+    set_permissions "/Applications/Wardenclyffe UI.app/installer.sh", '0755'
+    set_permissions "/Applications/Wardenclyffe UI.app/uninstaller.sh", '0755'
+  end
+
+  postflight do
+    system_command "#{appdir}/Wardenclyffe UI.app/installer.sh",
+                   args: ["#{version}"],
+                   sudo: true
+  end
+
+  uninstall_preflight do
+    system_command "/bin/sh",
+                   args: ["-c", <<~CMD],
+                     launchctl bootout system/wardenclyffe 2>/dev/null || \
+                       launchctl unload /Library/LaunchDaemons/wardenclyffe.plist 2>/dev/null || true
+                     rm -f /Library/LaunchDaemons/wardenclyffe.plist
+                   CMD
+                   sudo: true
+  end
+
+  name "Wardenclyffe UI"
+  desc "Wardenclyffe UI Client"
+  homepage "https://www.wardenclyffe.app/"
+end

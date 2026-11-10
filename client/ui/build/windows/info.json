@@ -1,0 +1,15 @@
+{
+	"fixed": {
+		"file_version": "0.0.1"
+	},
+	"info": {
+		"0000": {
+			"ProductVersion": "0.0.1",
+			"CompanyName": "WardenClyffe",
+			"FileDescription": "WardenClyffe desktop client",
+			"LegalCopyright": "WardenClyffe GmbH",
+			"ProductName": "WardenClyffe",
+			"Comments": "This is a comment"
+		}
+	}
+}

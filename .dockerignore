@@ -1,0 +1,11 @@
+.env
+.env.*
+*.pem
+*.key
+*.crt
+*.p12
+.tmp/
+**/node_modules/
+**/.next/
+dashboard/out/
+client/ui/frontend/dist/

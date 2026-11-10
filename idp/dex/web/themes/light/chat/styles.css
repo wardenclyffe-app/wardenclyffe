@@ -1,0 +1,25 @@
+.wc-chat,
+.wc-chat-launcher {
+  position: fixed;
+  right: clamp(.5rem, 2vw, 1.5rem);
+  bottom: clamp(.5rem, 2vw, 1.5rem);
+  z-index: 40;
+  border: 1px solid var(--wc-cyan);
+  border-radius: 1rem;
+  background: var(--wc-surface);
+  color: var(--wc-ink);
+  box-shadow: 0 12px 36px #0008;
+}
+.wc-chat { width: min(24rem, calc(100% - 1rem)); }
+.wc-chat summary { padding: 1rem; cursor: pointer; min-height: 48px; }
+.wc-chat-body { padding: 0 1rem 1rem; max-height: 45dvh; overflow: auto; }
+.wc-chat-body p { margin: 0 0 1rem; line-height: 1.5; }
+.wc-chat textarea { display: block; width: 100%; padding: .75rem; margin: .5rem 0; border: 1px solid var(--wc-border); border-radius: .5rem; background: var(--wc-bg); color: var(--wc-muted); }
+.wc-chat button,
+.wc-chat-launcher { padding: .75rem 1rem; min-height: 48px; cursor: pointer; }
+.wc-chat button { background: var(--wc-cyan); color: #082f49; border-radius: .5rem; }
+.wc-chat button:disabled { opacity: .6; cursor: not-allowed; }
+.wc-chat :focus-visible,
+.wc-chat-launcher:focus-visible { outline: 3px solid var(--wc-gold); outline-offset: 3px; }
+.wc-chat[hidden],
+.wc-chat-launcher[hidden] { display: none; }

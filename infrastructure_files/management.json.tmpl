@@ -1,0 +1,101 @@
+{
+    "Stuns": [
+        {
+            "Proto": "udp",
+            "URI": "stun:$TURN_DOMAIN:3478",
+            "Username": "",
+            "Password": null
+        }
+    ],
+    "TURNConfig": {
+        "Turns": [
+            {
+                "Proto": "udp",
+                "URI": "turn:$TURN_DOMAIN:3478",
+                "Username": "$TURN_USER",
+                "Password": "$TURN_PASSWORD"
+            }
+        ],
+        "CredentialsTTL": "12h",
+        "Secret": "secret",
+        "TimeBasedCredentials": false
+    },
+    "Relay": {
+        "Addresses": ["$WARDENCLYFFE_RELAY_ENDPOINT"],
+        "CredentialsTTL": "24h",
+        "Secret": "$WARDENCLYFFE_RELAY_AUTH_SECRET"
+    },
+    "Signal": {
+        "Proto": "$WARDENCLYFFE_SIGNAL_PROTOCOL",
+        "URI": "$WARDENCLYFFE_DOMAIN:$WARDENCLYFFE_SIGNAL_PORT",
+        "Username": "",
+        "Password": null
+    },
+    "ReverseProxy": {
+        "TrustedHTTPProxies": [],
+        "TrustedHTTPProxiesCount": 0,
+        "TrustedPeers": []
+    },
+    "DisableDefaultPolicy": $WARDENCLYFFE_MGMT_DISABLE_DEFAULT_POLICY,
+    "Datadir": "",
+    "DataStoreEncryptionKey": "$WARDENCLYFFE_DATASTORE_ENC_KEY",
+    "StoreConfig": {
+        "Engine": "$WARDENCLYFFE_STORE_CONFIG_ENGINE"
+    },
+    "HttpConfig": {
+        "Address": "0.0.0.0:$WARDENCLYFFE_MGMT_API_PORT",
+        "AuthIssuer": "$WARDENCLYFFE_AUTH_AUTHORITY",
+        "AuthAudience": "$WARDENCLYFFE_AUTH_AUDIENCE",
+        "AuthKeysLocation": "$WARDENCLYFFE_AUTH_JWT_CERTS",
+        "AuthUserIDClaim": "$WARDENCLYFFE_AUTH_USER_ID_CLAIM",
+        "CertFile":"$WARDENCLYFFE_MGMT_API_CERT_FILE",
+        "CertKey":"$WARDENCLYFFE_MGMT_API_CERT_KEY_FILE",
+        "IdpSignKeyRefreshEnabled": $WARDENCLYFFE_MGMT_IDP_SIGNKEY_REFRESH,
+        "OIDCConfigEndpoint":"$WARDENCLYFFE_AUTH_OIDC_CONFIGURATION_ENDPOINT"
+    },
+    "IdpManagerConfig": {
+        "ManagerType": "$WARDENCLYFFE_MGMT_IDP",
+        "ClientConfig": {
+            "Issuer": "$WARDENCLYFFE_AUTH_AUTHORITY",
+            "TokenEndpoint": "$WARDENCLYFFE_AUTH_TOKEN_ENDPOINT",
+            "ClientID": "$WARDENCLYFFE_IDP_MGMT_CLIENT_ID",
+            "ClientSecret": "$WARDENCLYFFE_IDP_MGMT_CLIENT_SECRET",
+            "GrantType": "client_credentials"
+        },
+        "ExtraConfig": $WARDENCLYFFE_IDP_MGMT_EXTRA_CONFIG,
+        "Auth0ClientCredentials": null,
+        "AzureClientCredentials": null,
+        "KeycloakClientCredentials": null,
+        "ZitadelClientCredentials": null
+     },
+    "DeviceAuthorizationFlow": {
+        "Provider": "$WARDENCLYFFE_AUTH_DEVICE_AUTH_PROVIDER",
+        "ProviderConfig": {
+          "Audience": "$WARDENCLYFFE_AUTH_DEVICE_AUTH_AUDIENCE",
+          "AuthorizationEndpoint": "",
+          "Domain": "$WARDENCLYFFE_AUTH0_DOMAIN",
+          "ClientID": "$WARDENCLYFFE_AUTH_DEVICE_AUTH_CLIENT_ID",
+          "ClientSecret": "",
+          "TokenEndpoint": "$WARDENCLYFFE_AUTH_TOKEN_ENDPOINT",
+          "DeviceAuthEndpoint": "$WARDENCLYFFE_AUTH_DEVICE_AUTH_ENDPOINT",
+          "Scope": "$WARDENCLYFFE_AUTH_DEVICE_AUTH_SCOPE",
+          "UseIDToken": $WARDENCLYFFE_AUTH_DEVICE_AUTH_USE_ID_TOKEN,
+          "RedirectURLs": null
+         }
+    },
+    "PKCEAuthorizationFlow": {
+        "ProviderConfig": {
+            "Audience": "$WARDENCLYFFE_AUTH_PKCE_AUDIENCE",
+            "ClientID": "$WARDENCLYFFE_AUTH_CLIENT_ID",
+            "ClientSecret": "$WARDENCLYFFE_AUTH_CLIENT_SECRET",
+            "Domain": "",
+            "AuthorizationEndpoint": "$WARDENCLYFFE_AUTH_PKCE_AUTHORIZATION_ENDPOINT",
+            "TokenEndpoint": "$WARDENCLYFFE_AUTH_TOKEN_ENDPOINT",
+            "Scope": "$WARDENCLYFFE_AUTH_SUPPORTED_SCOPES",
+            "RedirectURLs": [$WARDENCLYFFE_AUTH_PKCE_REDIRECT_URLS],
+            "UseIDToken": $WARDENCLYFFE_AUTH_PKCE_USE_ID_TOKEN,
+            "DisablePromptLogin": $WARDENCLYFFE_AUTH_PKCE_DISABLE_PROMPT_LOGIN,
+            "LoginFlag": $WARDENCLYFFE_AUTH_PKCE_LOGIN_FLAG
+        }
+    }
+}

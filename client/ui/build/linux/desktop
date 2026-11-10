@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=WardenClyffe
+Comment=WardenClyffe desktop client
+# The Exec line includes %u to pass the URL to the application
+Exec=/usr/local/bin/wardenclyffe-ui %u
+Terminal=false
+Type=Application
+Icon=wardenclyffe-ui
+Categories=Utility;
+StartupWMClass=wardenclyffe-ui
+
+ 

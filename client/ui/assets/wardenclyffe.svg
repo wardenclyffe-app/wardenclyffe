@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="towerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e94560"/>
+      <stop offset="100%" stop-color="#c73a54"/>
+    </linearGradient>
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="400" height="400" fill="url(#bgGrad)"/>
+
+  <!-- Tesla Tower Silhouette -->
+  <path d="M160,350 L180,345 Q200,290 200,250 C200,200 180,170 160,165 L140,165 C120,170 100,200 100,250 Q100,290 120,345 L140,350 Z" fill="url(#towerGrad)"/>
+
+  <!-- Tower base -->
+  <rect x="100" y="345" width="200" height="10" rx="8" fill="#e94560" opacity="0.8"/>
+
+  <!-- Tower windows -->
+  <g stroke="#c73a54" stroke-width="2">
+    <rect x="180" y="248" width="40" height="12" rx="3"/>
+    <rect x="180" y="278" width="40" height="12" rx="3"/>
+    <rect x="180" y="308" width="40" height="12" rx="3"/>
+  </g>
+
+  <!-- Mesh Nodes -->
+  <circle cx="45" cy="120" r="7" fill="#e94560"/>
+  <circle cx="355" cy="120" r="7" fill="#c73a54"/>
+  <circle cx="65" cy="220" r="7" fill="#c73a54"/>
+  <circle cx="335" cy="220" r="7" fill="#e94560"/>
+  <circle cx="100" cy="290" r="7" fill="#c73a54"/>
+  <circle cx="280" cy="290" r="7" fill="#e94560"/>
+
+  <!-- Mesh Connections -->
+  <line x1="45" y1="120" x2="355" y2="120" stroke="#e94560" stroke-width="2" stroke-dasharray="3 2"/>
+  <line x1="65" y1="220" x2="335" y2="220" stroke="#e94560" stroke-width="2" stroke-dasharray="3 2"/>
+  <line x1="100" y1="290" x2="280" y2="290" stroke="#e94560" stroke-width="2" stroke-dasharray="3 2"/>
+
+  <!-- Connections to Tower -->
+  <line x1="45" y1="120" x2="170" y2="300" stroke="#e94560" stroke-width="2" stroke-dasharray="3 2"/>
+  <line x1="65" y1="220" x2="180" y2="300" stroke="#e94560" stroke-width="2" stroke-dasharray="3 2"/>
+  <line x1="100" y1="290" x2="180" y2="300" stroke="#e94560" stroke-width="2" stroke-dasharray="3 2"/>
+
+  <!-- WC Text - Prominently Displayed -->
+  <text x="200" y="370" font-family="Arial, sans-serif" font-size="70" fill="#ffffff" text-anchor="middle">WC</text>
+
+  <!-- Subtitle -->
+  <text x="200" y="415" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">WARDENCLYFFE COMMUNICATIONS</text>
+</svg>

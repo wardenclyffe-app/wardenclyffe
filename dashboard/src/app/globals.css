@@ -1,0 +1,332 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --toasts-before: 0;
+    --lift: 1;
+    --wc-radius-sm: 0.5rem;
+    --wc-radius-md: 0.75rem;
+    --wc-radius-lg: 1rem;
+    --wc-space-1: clamp(0.25rem, 0.2rem + 0.25vw, 0.5rem);
+    --wc-space-2: clamp(0.5rem, 0.4rem + 0.4vw, 0.75rem);
+    --wc-space-3: clamp(0.75rem, 0.6rem + 0.6vw, 1rem);
+    --wc-space-4: clamp(1rem, 0.8rem + 0.8vw, 1.5rem);
+    --wc-text-xs: clamp(0.75rem, 0.72rem + 0.1vw, 0.8rem);
+    --wc-text-sm: clamp(0.85rem, 0.8rem + 0.2vw, 0.95rem);
+    --wc-text-md: clamp(0.95rem, 0.88rem + 0.25vw, 1.1rem);
+    --wc-text-lg: clamp(1.1rem, 1rem + 0.4vw, 1.4rem);
+    --wc-shell-top: clamp(3rem, 2.6rem + 1vw, 4rem);
+    --wc-shell-left: clamp(3.25rem, 2.8rem + 1vw, 4.25rem);
+    --wc-frame-stroke: color-mix(in oklab, var(--wc-ink), transparent 80%);
+    --wc-frame-bg: color-mix(in oklab, var(--wc-tile), transparent 15%);
+}
+
+/*
+ * WardenClyffe brand palette (logo marks, see components/WardenClyffeLogo).
+ * Follows the theme class ThemeProvider puts on <html>; the media query only
+ * applies when no theme class is present. Scoping .dark/.light on a subtree
+ * re-themes the logo inside it.
+ */
+:root,
+.dark {
+    --wc-cyan: #7DD3FC;
+    --wc-coral: #E8A87C;
+    --wc-gold: #F2C879;
+    --wc-ink: #EDEAE2;
+    --wc-tile: #131A28;
+}
+
+.light {
+    --wc-cyan: #2A9FD8;
+    --wc-coral: #D8814F;
+    --wc-gold: #C9952B;
+    --wc-ink: #131A28;
+}
+
+@media (prefers-color-scheme: light) {
+    :root:not(.dark):not(.light) {
+        --wc-cyan: #2A9FD8;
+        --wc-coral: #D8814F;
+        --wc-gold: #C9952B;
+        --wc-ink: #131A28;
+    }
+}
+
+html{
+    @apply bg-nb-gray;
+}
+
+.wc-shell-frame {
+    border: 1px solid var(--wc-frame-stroke);
+    border-radius: var(--wc-radius-lg);
+    background: var(--wc-frame-bg);
+    backdrop-filter: blur(8px);
+}
+
+.wc-fluid-text-xs { font-size: var(--wc-text-xs); }
+.wc-fluid-text-sm { font-size: var(--wc-text-sm); }
+.wc-fluid-text-md { font-size: var(--wc-text-md); }
+.wc-fluid-text-lg { font-size: var(--wc-text-lg); }
+
+h1 {
+    @apply text-2xl font-medium text-gray-700 dark:text-nb-gray-100 my-1;
+}
+h2 {
+    @apply text-xl font-medium text-gray-700 dark:text-nb-gray-100 my-1;
+}
+p {
+    @apply font-light tracking-wide text-gray-700 dark:text-zinc-50 text-sm;
+}
+
+.p-default {
+    @apply px-4 sm:px-6 md:px-8;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+[placeholder]{
+    text-overflow:ellipsis;
+}
+
+.animated-gradient-bg{
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100%;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+.sticky {
+    position: sticky !important;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+
+.table-fixed-scroll {
+    display: table;
+    position: relative;
+    width: 100%;
+}
+
+.stepper-bg-variant .step-circle {
+    @apply !border-nb-gray-940;
+}
+
+.webkit-scroll{
+    -webkit-overflow-scrolling: touch;
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+
+.timescape {
+    @apply flex items-center gap-[1px] rounded-md py-2 px-3 select-none w-fit cursor-text bg-nb-gray-900;
+}
+
+.timescape input {
+    @apply cursor-text px-0.5 py-1 bg-transparent h-fit border-0 outline-0 select-none box-content caret-transparent text-nb-gray-200 text-sm placeholder-nb-gray-300;
+    font-variant-numeric: tabular-nums;
+    /* Needed for the input width calculation */
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.timescape input:focus {
+    @apply bg-nb-gray-700 text-white rounded py-1 px-0.5 border-0 outline-0;
+}
+
+.timescape .separator {
+    @apply text-gray-400 m-0 text-[80%] -top-[1px] relative;
+}
+
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+.animate-slow-ping {
+    animation: ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite
+}
+
+@keyframes ping {
+    75%, 100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+.animate-slow-pulse {
+    animation: pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite
+}
+
+
+@keyframes pulse {
+    60% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes bg-scroll {
+    0% {
+        background-position: 0% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.animate-bg-scroll {
+    animation: bg-scroll 4s linear infinite;
+}
+.animate-bg-scroll-faster {
+    animation: bg-scroll 1.8s linear infinite;
+}
+
+.xterm {
+    @apply m-0 p-1 box-border h-full w-full;
+}
+
+.xterm-viewport {
+    @apply m-0 p-0 box-border;
+}
+
+/* Disable sonner's opacity fade-in for custom toasts, but respect visibility */
+[data-sonner-toast][data-visible="true"] {
+    opacity: 1 !important;
+}
+
+
+/* Adjust sonner stacking: less shrink and less lift per toast */
+[data-sonner-toast][data-expanded="false"][data-front="false"] {
+    --scale: calc(var(--toasts-before) * 0.03 - 1) !important;
+    --lift-amount: calc(var(--lift) * 10px) !important;
+}
+
+/* Override stacked toast removal to move up instead of down */
+[data-sonner-toast][data-removed='true'][data-front='false'][data-swipe-out='false'][data-expanded='false'] {
+    --y: translateY(calc(var(--lift) * -20%)) !important;
+
+    opacity: 0 !important;
+    transition: transform 400ms ease, opacity 300ms ease !important;
+}
+
+.react-flow__node-groupNode .selected{
+    @apply border-wardenclyffe;
+}
+
+/* Keep drag-to-connect line behind nodes (default is above) */
+.react-flow__connectionline,
+.react-flow__connection {
+    z-index: 0 !important;
+}
+
+.react-flow__selection,
+.react-flow__nodesselection-rect {
+    border-style: solid !important;
+}
+
+/* One shared animation instead of per-edge SMIL, which lagged the canvas. */
+@keyframes cc-edge-dash {
+    from {
+        stroke-dashoffset: 20;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.cc-animated-edge {
+    animation: cc-edge-dash 0.5s linear infinite;
+}
+
+/* Hide the viewport until the first fit lands: the view initializes before the
+   camera is fitted, so nodes would paint at the default viewport. */
+.react-flow.cc-prefit .react-flow__viewport {
+    /* A transition here would fade the flash out visibly. */
+    opacity: 0;
+    transition: none;
+}
+.react-flow .react-flow__viewport {
+    transition: opacity 120ms ease;
+}
+
+/* Just-assigned network frame: an expanding box-shadow, so no layout shift. */
+@keyframes cc-node-pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.55); }
+    70%  { box-shadow: 0 0 0 14px rgba(56, 189, 248, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0); }
+}
+.react-flow__node.cc-node-pulse {
+    border-radius: 14px;
+    animation: cc-node-pulse 1.1s ease-out 2;
+}
+
+/* Nodes/edges off the focused node's path fade out while its panel is open. */
+.react-flow__node.cc-dimmed {
+    opacity: 0.25;
+    filter: grayscale(1);
+    transition: opacity 150ms ease, filter 150ms ease;
+    /* Clicks fall through to the pane, which exits the focus view. */
+    pointer-events: none !important;
+}
+.react-flow__edge.cc-dimmed {
+    opacity: 0.12;
+    filter: grayscale(1);
+    transition: opacity 150ms ease, filter 150ms ease;
+}
+
+/* Edges have no click action, and their wide interaction path swallowed pans. */
+.react-flow .react-flow__edge,
+.react-flow .react-flow__edge .react-flow__edge-interaction {
+    pointer-events: none !important;
+}
+
+/* While Focus Mode is armed a click picks a target, not a button. */
+.cc-focus-armed .react-flow__node button {
+    pointer-events: none;
+}
+
+.cc-focus-armed .react-flow__node:not(.cc-unfocusable) {
+    cursor: pointer;
+}
+.cc-focus-armed .react-flow__node:not(.cc-unfocusable):hover > * {
+    /* Ring on the node's own card so it follows that element's radius. */
+    box-shadow: 0 0 0 2px rgb(56 189 248); /* sky-400 */
+}
+/* Frame rows carry their ring on the icon box, not the full-width row. */
+.cc-focus-armed .react-flow__node:not(.cc-unfocusable):hover > .cc-frame-row {
+    box-shadow: none;
+}
+.cc-focus-armed
+    .react-flow__node:not(.cc-unfocusable):hover
+    > .cc-frame-row
+    .cc-frame-row-icon {
+    box-shadow: 0 0 0 2px rgb(250 204 21);
+}

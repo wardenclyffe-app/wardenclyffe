@@ -1,0 +1,64 @@
+{
+  "Serial": "35",
+  "peerConfig": {
+    "address": "100.64.0.10/10",
+    "sshConfig": {},
+    "fqdn": "peer-srv.wardenclyffe.test",
+    "autoUpdate": {}
+  },
+  "remotePeers": [
+    {
+      "wgPubKey": "ilmSCJoVLTTY/Am7or8ES8R0hL/OdfE2FDK197pxc5o=",
+      "allowedIps": [
+        "100.64.0.1/32"
+      ],
+      "sshConfig": {},
+      "fqdn": "peer-both.wardenclyffe.test",
+      "agentVersion": "1.0.0"
+    }
+  ],
+  "DNSConfig": {
+    "ServiceEnable": true,
+    "CustomZones": [
+      {
+        "Domain": "wardenclyffe.test.",
+        "Records": [
+          {
+            "Name": "peer-both.wardenclyffe.test",
+            "Type": "1",
+            "Class": "IN",
+            "TTL": "300",
+            "RData": "100.64.0.1"
+          },
+          {
+            "Name": "peer-srv.wardenclyffe.test",
+            "Type": "1",
+            "Class": "IN",
+            "TTL": "300",
+            "RData": "100.64.0.10"
+          }
+        ]
+      }
+    ],
+    "ForwarderPort": "5353"
+  },
+  "FirewallRules": [
+    {
+      "PeerIP": "100.64.0.1",
+      "Protocol": "TCP",
+      "Port": "443",
+      "PolicyID": "cG9sLWNvbWJv"
+    },
+    {
+      "PeerIP": "100.64.0.1",
+      "Direction": "OUT",
+      "Protocol": "TCP",
+      "Port": "443",
+      "PolicyID": "cG9sLWNvbWJv"
+    }
+  ],
+  "routesFirewallRulesIsEmpty": true,
+  "sshAuth": {
+    "UserIDClaim": "sub"
+  }
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "tag": "New",
+    "text": "The new WardenClyffe desktop app is here - now available in the v0.75 release.",
+    "link": "https://wardenclyffe.appknowledge-hub/wardenclyffe-v0-75-new-desktop-app",
+    "linkText": "Learn more",
+    "variant": "important",
+    "isExternal": true,
+    "closeable": true,
+    "isCloudOnly": false
+  }
+]

@@ -1,0 +1,111 @@
+"use client";
+
+import { CanonicalButton } from "@components/canonical/CanonicalButton";
+import { WardenClyffeLogo } from "@components/WardenClyffeLogo";
+import { AnnouncementBanner } from "@components/ui/AnnouncementBanner";
+import HelpAndSupportButton from "@components/ui/HelpAndSupportButton";
+import UserDropdown from "@components/ui/UserDropdown";
+import { cn } from "@utils/helpers";
+import { useGuardedRouter } from "@utils/navigation-guard";
+import { MenuIcon, PanelLeftCloseIcon, PanelLeftOpenIcon } from "lucide-react";
+import React from "react";
+import { DistributorTransferAccountModal } from "@/cloud/distributor/DistributorTransferAccountModal";
+import { MSPTenantsSwitcher } from "@/cloud/msp/MSPTenantsSwitcher";
+import { MSPTransferAccountModal } from "@/cloud/msp/MSPTransferAccountModal";
+import { useAnnouncement } from "@/contexts/AnnouncementProvider";
+import { useApplicationContext } from "@/contexts/ApplicationProvider";
+import { usePermissions } from "@/contexts/PermissionsProvider";
+
+export const headerHeight = 65;
+
+export default function NavbarWithDropdown() {
+  const router = useGuardedRouter();
+  const { toggleMobileNav } = useApplicationContext();
+  const { bannerHeight } = useAnnouncement();
+  const { isRestricted } = usePermissions();
+
+  return (
+    <>
+      <div
+        className={"fixed z-50 w-full"}
+        style={{
+          height: headerHeight + bannerHeight,
+        }}
+      >
+        <AnnouncementBanner />
+        <div
+          className={cn(
+            "wc-shell-frame mx-[var(--wc-space-2)] mt-[var(--wc-space-2)] px-[var(--wc-space-2)] py-[var(--wc-space-2)]",
+            "border dark:border-zinc-700/40 w-auto",
+            "flex justify-between items-center transition-all",
+          )}
+        >
+          <div className={"flex items-center gap-4 md:hidden"}>
+            <CanonicalButton
+              className={cn("md:hidden", isRestricted && "opacity-0 pointer-events-none")}
+              variant={"ghost"}
+              size={"sm"}
+              onClick={toggleMobileNav}
+            >
+              <div>
+                <MenuIcon size={20} className={"relative"} />
+              </div>
+            </CanonicalButton>
+          </div>
+          <div className={"flex gap-4 mr-auto"}>
+            <button
+              onClick={() => router.push("/peers")}
+              className={
+                "cursor-pointer hover:opacity-70 transition-all mr-auto"
+              }
+            >
+              <WardenClyffeLogo />
+            </button>
+            <ToggleCollapsableNavigationButton />
+          </div>
+
+          <div className="flex md:order-2 gap-5 items-center">
+            <MSPTransferAccountModal />
+            <DistributorTransferAccountModal />
+            <MSPTenantsSwitcher />
+            <HelpAndSupportButton />
+            <UserDropdown />
+          </div>
+        </div>
+      </div>
+      <div
+        style={{
+          height: headerHeight + bannerHeight,
+        }}
+      ></div>
+    </>
+  );
+}
+
+const ToggleCollapsableNavigationButton = () => {
+  const { isRestricted } = usePermissions();
+  const { toggleNavigation, isNavigationCollapsed } = useApplicationContext();
+
+  return (
+    !isRestricted && (
+      <CanonicalButton
+        onClick={toggleNavigation}
+        data-navbar-colappse-toggle
+        className={cn(
+          "h-10 w-10 hover:text-white flex items-center justify-center text-nb-gray-300 transition-all ml-2",
+          "hidden md:block",
+        )}
+        variant={"ghost"}
+        size={"sm"}
+        iconOnly
+        aria-label={isNavigationCollapsed ? "Expand navigation" : "Collapse navigation"}
+      >
+        {isNavigationCollapsed ? (
+          <PanelLeftOpenIcon size={16} />
+        ) : (
+          <PanelLeftCloseIcon size={16} />
+        )}
+      </CanonicalButton>
+    )
+  );
+};

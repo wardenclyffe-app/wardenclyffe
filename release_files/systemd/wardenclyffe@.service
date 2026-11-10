@@ -1,0 +1,42 @@
+[Unit]
+Description=Wardenclyffe Client (%i)
+Documentation=https://wardenclyffe.appdocs
+After=network-online.target syslog.target NetworkManager.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+EnvironmentFile=-/etc/default/wardenclyffe
+ExecStart=/usr/bin/wardenclyffe service run --log-file /var/log/wardenclyffe/client-%i.log --daemon-addr unix:///var/run/wardenclyffe/%i.sock $FLAGS
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=10
+CacheDirectory=wardenclyffe
+ConfigurationDirectory=wardenclyffe
+LogsDirectory=wardenclyffe
+RuntimeDirectory=wardenclyffe
+StateDirectory=wardenclyffe
+
+# sandboxing
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+NoNewPrivileges=yes
+PrivateMounts=yes
+PrivateTmp=yes
+ProtectClock=yes
+ProtectControlGroups=yes
+ProtectHome=yes
+ProtectHostname=yes
+ProtectKernelLogs=yes
+# needed to load wg module for kernel-mode WireGuard
+ProtectKernelModules=no
+ProtectKernelTunables=no
+ProtectSystem=yes
+RemoveIPC=yes
+RestrictNamespaces=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+
+[Install]
+WantedBy=multi-user.target
+

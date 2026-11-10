@@ -1,0 +1,75 @@
+{
+  "version": "mcpl.catalog/1",
+  "entries": [
+    {
+      "id": "ui.activate",
+      "kind": "signal",
+      "aliases": ["click", "onClick"],
+      "description": "A control receives an activation event.",
+      "execution": "observe"
+    },
+    {
+      "id": "ui.focus",
+      "kind": "signal",
+      "aliases": ["focus", "focusin", "onFocus"],
+      "description": "A control receives focus.",
+      "execution": "observe"
+    },
+    {
+      "id": "ui.hover",
+      "kind": "signal",
+      "aliases": ["pointerover", "mouseenter", "onPointerOver", "onMouseEnter"],
+      "description": "A pointer enters a control.",
+      "execution": "observe"
+    },
+    {
+      "id": "ui.input",
+      "kind": "signal",
+      "aliases": ["input", "onInput"],
+      "description": "A form input event. Field values are not collected.",
+      "execution": "observe"
+    },
+    {
+      "id": "ui.change",
+      "kind": "signal",
+      "aliases": ["change", "onChange"],
+      "description": "A form change event. Field values are not collected.",
+      "execution": "observe"
+    },
+    {
+      "id": "ui.submit",
+      "kind": "signal",
+      "aliases": ["submit", "onSubmit"],
+      "description": "A form submit event, not approval to submit.",
+      "execution": "observe"
+    },
+    {
+      "id": "dashboard.focus",
+      "kind": "action",
+      "aliases": ["focus-target"],
+      "description": "Reserved capability. No interaction executor is installed.",
+      "execution": "unavailable"
+    },
+    {
+      "id": "dashboard.type",
+      "kind": "action",
+      "aliases": ["type-text"],
+      "description": "Reserved capability. No interaction executor is installed.",
+      "execution": "unavailable"
+    },
+    {
+      "id": "ui.tooltip",
+      "kind": "content",
+      "aliases": ["tooltip"],
+      "description": "Existing A2UI content kind, not an executable capability.",
+      "execution": "unavailable"
+    },
+    {
+      "id": "ui.popup",
+      "kind": "content",
+      "aliases": ["popup"],
+      "description": "Existing A2UI content kind, not an executable capability.",
+      "execution": "unavailable"
+    }
+  ]
+}

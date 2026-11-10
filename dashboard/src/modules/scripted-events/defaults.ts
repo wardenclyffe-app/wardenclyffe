@@ -1,0 +1,72 @@
+import type { ScriptedEvent } from "./contracts";
+
+export const defaultScriptedEvents: ScriptedEvent[] = [
+  {
+    id: "clyffy-welcome-tooltip",
+    enabled: true,
+    kind: "tooltip",
+    trigger: "app_load",
+    source: "didyouknow",
+    actor: "clyffy",
+    visibility: "visible",
+    delivery: "ui",
+    focus: "limited_tunnel",
+    priority: 100,
+    target: "dashboard.nav",
+    tooltip: {
+      id: "tip-nav",
+      title: "Welcome",
+      text: "Use the left frame to jump between peers, policies and events.",
+      placement: "right",
+    },
+    metadata: {
+      provenance: "didyouknow",
+      signal: "first_session",
+    },
+  },
+  {
+    id: "council-security-factoid",
+    enabled: true,
+    kind: "announcement",
+    trigger: "route_change",
+    source: "knowledgedrop",
+    actor: "council",
+    councilRole: "guardian",
+    visibility: "visible",
+    delivery: "hybrid",
+    focus: "full",
+    priority: 90,
+    announcement: {
+      tag: "Council",
+      text: "KnowledgeDrop: access policies with posture checks reduce lateral movement risk.",
+      variant: "important",
+      closeable: true,
+      isCloudOnly: false,
+    },
+    metadata: {
+      provenance: "knowledgedrop/security",
+      signal: "policies.opened",
+    },
+  },
+  {
+    id: "background-traffic-sink",
+    enabled: true,
+    kind: "popup",
+    trigger: "scheduled",
+    source: "system",
+    actor: "system",
+    visibility: "background",
+    delivery: "datasink",
+    focus: "limited_tunnel",
+    priority: 10,
+    popup: {
+      id: "sink-1",
+      title: "Sink Event",
+      body: "Background-only event for telemetry and model context shaping.",
+    },
+    metadata: {
+      provenance: "system/sink",
+      signal: "interval",
+    },
+  },
+];

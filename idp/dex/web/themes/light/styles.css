@@ -1,0 +1,97 @@
+:root {
+  font-size: 100%;
+  color-scheme: dark;
+  --wc-bg: #0d1420;
+  --wc-surface: #131a28;
+  --wc-border: #40516a;
+  --wc-ink: #edeae2;
+  --wc-muted: #b8c7d9;
+  --wc-cyan: #7dd3fc;
+  --wc-cyan-hover: #bae6fd;
+  --wc-coral: #e8a87c;
+  --wc-gold: #f2c879;
+  --wc-space: clamp(1rem, 0.75rem + 1vw, 2rem);
+}
+
+html body {
+  background: var(--wc-bg);
+  color: var(--wc-ink);
+  font-size: 1rem;
+}
+
+body .nb-container {
+  min-height: 100svh;
+  padding: var(--wc-space);
+  background: radial-gradient(ellipse at top, #1c3049, transparent 65%);
+}
+
+body .nb-logo {
+  width: min(100%, 20rem);
+  margin-bottom: var(--wc-space);
+}
+
+.nb-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+body .nb-card {
+  width: 100%;
+  max-width: 30rem;
+  padding: clamp(1.25rem, 1rem + 2vw, 2.5rem);
+  background: var(--wc-surface);
+  border: 1px solid var(--wc-border);
+  border-top: 3px solid var(--wc-cyan);
+  border-radius: 1.25rem;
+}
+
+body .nb-heading {
+  color: var(--wc-ink);
+  font-size: clamp(1.5rem, 1.25rem + 1vw, 2rem);
+}
+
+body .nb-subheading,
+body .nb-label {
+  color: var(--wc-muted);
+  font-size: 1rem;
+}
+
+body .nb-input,
+body .nb-btn-connector {
+  min-height: 3rem;
+  background-color: var(--wc-bg);
+  color: var(--wc-ink);
+  border-color: var(--wc-border);
+  font-size: 1rem;
+  border-radius: 0.75rem;
+}
+
+body .nb-btn {
+  min-height: 3rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+}
+
+body .nb-link {
+  font-size: 1rem;
+  text-underline-offset: 0.2em;
+}
+
+body :is(button, a, input):focus-visible {
+  outline: 3px solid var(--wc-gold);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body :is(.nb-btn, .nb-btn-connector, .nb-input, .nb-link) {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  body .nb-card,
+  body .nb-btn {
+    border: 1px solid ButtonText;
+  }
+}

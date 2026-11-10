@@ -1,0 +1,135 @@
+
+> wardenclyffe-dashboard@2.0.0 dev
+> next dev -p 3000
+
+▲ Next.js 16.3.4 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://100.72.44.71:3000
+✓ Ready in 5.8s
+✓ Running next.config.js took 60ms
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+
+○ Compiling / ...
+
+[1m[33mwarn[39m[22m - The class `duration-[700ms]` is ambiguous and matches multiple utilities.
+[1m[33mwarn[39m[22m - If this is content and not a class, replace it with `duration-&lsqb;700ms&rsqb;` to silence this warning.
+ GET / 200 in 18.5s (next.js: 18.0s, application-code: 476ms)
+ GET /peers 200 in 3.0s (next.js: 2.5s, application-code: 422ms)
+ GET /peer 200 in 3.1s (next.js: 3.0s, application-code: 152ms)
+ GET /setup-keys 200 in 887ms (next.js: 816ms, application-code: 71ms)
+ GET /access-control 200 in 796ms (next.js: 738ms, application-code: 57ms)
+ GET /networks 200 in 1044ms (next.js: 961ms, application-code: 83ms)
+ GET /team/users 200 in 982ms (next.js: 913ms, application-code: 69ms)
+ GET /settings 200 in 1209ms (next.js: 1109ms, application-code: 100ms)
+ GET /control-center 200 in 2.3s (next.js: 2.1s, application-code: 234ms)
+ GET /error 200 in 547ms (next.js: 487ms, application-code: 61ms)
+ GET /peers 200 in 105ms (next.js: 30ms, application-code: 75ms)
+[browser] Instance status check failed: TypeError: Failed to fetch
+    at unauthenticatedRequest (src/utils/unauthenticatedApi.ts:19:21)
+    at fetchInstanceStatus (src/utils/unauthenticatedApi.ts:50:10)
+    at InstanceSetupProvider.useEffect (src/contexts/InstanceSetupProvider.tsx:55:24)
+  17 |   const url = `${config.apiOrigin}/api${endpoint}`;
+  18 |
+> 19 |   const res = await fetch(url, {
+     |                     ^
+  20 |     method,
+  21 |     headers: {
+  22 |       "Content-Type": "application/json", (src/contexts/InstanceSetupProvider.tsx:64:17)
+[browser] Failed to fetch 
+[browser] TypeError: Failed to fetch
+[browser] ⨯ unhandledRejection: TypeError: Failed to fetch
+[browser] Failed to fetch 
+[browser] ⨯ unhandledRejection: TypeError: Failed to fetch
+ GET / 200 in 75ms (next.js: 18ms, application-code: 56ms)
+[browser] Instance status check failed: TypeError: Failed to fetch
+    at unauthenticatedRequest (src/utils/unauthenticatedApi.ts:19:21)
+    at fetchInstanceStatus (src/utils/unauthenticatedApi.ts:50:10)
+    at InstanceSetupProvider.useEffect (src/contexts/InstanceSetupProvider.tsx:55:24)
+  17 |   const url = `${config.apiOrigin}/api${endpoint}`;
+  18 |
+> 19 |   const res = await fetch(url, {
+     |                     ^
+  20 |     method,
+  21 |     headers: {
+  22 |       "Content-Type": "application/json", (src/contexts/InstanceSetupProvider.tsx:64:17)
+[browser] Failed to fetch 
+[browser] ⨯ unhandledRejection: TypeError: Failed to fetch
+[browser] Failed to fetch 
+[browser] TypeError: Failed to fetch
+[browser] Failed to fetch 
+[browser] ⨯ unhandledRejection: TypeError: Failed to fetch
+ GET /peers 200 in 95ms (next.js: 12ms, application-code: 83ms)
+[browser] Instance status check failed: TypeError: Failed to fetch
+    at unauthenticatedRequest (src/utils/unauthenticatedApi.ts:19:21)
+    at fetchInstanceStatus (src/utils/unauthenticatedApi.ts:50:10)
+    at InstanceSetupProvider.useEffect (src/contexts/InstanceSetupProvider.tsx:55:24)
+  17 |   const url = `${config.apiOrigin}/api${endpoint}`;
+  18 |
+> 19 |   const res = await fetch(url, {
+     |                     ^
+  20 |     method,
+  21 |     headers: {
+  22 |       "Content-Type": "application/json", (src/contexts/InstanceSetupProvider.tsx:64:17)
+[browser] Failed to fetch 
+[browser] ⨯ unhandledRejection: TypeError: Failed to fetch
+[browser] Failed to fetch 
+[browser] TypeError: Failed to fetch
+[browser] Failed to fetch 
+[browser] ⨯ unhandledRejection: TypeError: Failed to fetch
+ GET /peers 200 in 83ms (next.js: 11ms, application-code: 72ms)
+[browser] Instance status check failed: TypeError: Failed to fetch
+    at unauthenticatedRequest (src/utils/unauthenticatedApi.ts:19:21)
+    at fetchInstanceStatus (src/utils/unauthenticatedApi.ts:50:10)
+    at InstanceSetupProvider.useEffect (src/contexts/InstanceSetupProvider.tsx:55:24)
+  17 |   const url = `${config.apiOrigin}/api${endpoint}`;
+  18 |
+> 19 |   const res = await fetch(url, {
+     |                     ^
+  20 |     method,
+  21 |     headers: {
+  22 |       "Content-Type": "application/json", (src/contexts/InstanceSetupProvider.tsx:64:17)
+[browser] Failed to fetch 
+[browser] TypeError: Failed to fetch
+[browser] ⨯ unhandledRejection: TypeError: Failed to fetch
+[browser] Failed to fetch 
+[browser] ⨯ unhandledRejection: TypeError: Failed to fetch
+ GET /peers 200 in 89ms (next.js: 31ms, application-code: 58ms)
+[browser] Instance status check failed: TypeError: Failed to fetch
+    at unauthenticatedRequest (src/utils/unauthenticatedApi.ts:19:21)
+    at fetchInstanceStatus (src/utils/unauthenticatedApi.ts:50:10)
+    at InstanceSetupProvider.useEffect (src/contexts/InstanceSetupProvider.tsx:55:24)
+  17 |   const url = `${config.apiOrigin}/api${endpoint}`;
+  18 |
+> 19 |   const res = await fetch(url, {
+     |                     ^
+  20 |     method,
+  21 |     headers: {
+  22 |       "Content-Type": "application/json", (src/contexts/InstanceSetupProvider.tsx:64:17)
+[browser] Failed to fetch 
+[browser] TypeError: Failed to fetch
+[browser] ⨯ unhandledRejection: TypeError: Failed to fetch
+[browser] Failed to fetch 
+[browser] ⨯ unhandledRejection: TypeError: Failed to fetch
+ GET /peers 200 in 74ms (next.js: 9ms, application-code: 66ms)
+[browser] Instance status check failed: TypeError: Failed to fetch
+    at unauthenticatedRequest (src/utils/unauthenticatedApi.ts:19:21)
+    at fetchInstanceStatus (src/utils/unauthenticatedApi.ts:50:10)
+    at InstanceSetupProvider.useEffect (src/contexts/InstanceSetupProvider.tsx:55:24)
+  17 |   const url = `${config.apiOrigin}/api${endpoint}`;
+  18 |
+> 19 |   const res = await fetch(url, {
+     |                     ^
+  20 |     method,
+  21 |     headers: {
+  22 |       "Content-Type": "application/json", (src/contexts/InstanceSetupProvider.tsx:64:17)
+[browser] Failed to fetch 
+[browser] TypeError: Failed to fetch
+[browser] ⨯ unhandledRejection: TypeError: Failed to fetch
+[browser] Failed to fetch 
+[browser] ⨯ unhandledRejection: TypeError: Failed to fetch
+ GET / 200 in 47ms (next.js: 13ms, application-code: 35ms)
+^C^C
